@@ -1,0 +1,108 @@
+// Creating a new XMLHttpRequest object for get Request using js 
+var xhr = new XMLHttpRequest();
+
+// Configuring the request: GET method and URL
+xhr.open('GET', 'https://example.com/data', true);
+
+// Setting up a callback function to handle the response
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        // Processing the response
+        console.log(xhr.responseText);
+    }
+};
+
+// Sending the request
+xhr.send();
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Creating a new XMLHttpRequest object for post Request using js
+var xhr = new XMLHttpRequest();
+
+// Configuring the request: POST method and URL
+xhr.open('POST', 'https://example.com/data', true);
+
+// Setting the Content-Type header for a POST request
+xhr.setRequestHeader('Content-Type', 'application/json');
+
+// Setting up a callback function to handle the response
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        // Processing the response
+        console.log(xhr.responseText);
+    }
+};
+
+// Data to be sent in the request body
+var data = { key: 'value' };
+
+// Sending the request with data
+xhr.send(JSON.stringify(data));
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Making a GET request using jQuery 
+$.ajax({
+    url: 'https://example.com/data',
+    method: 'GET',
+    success: function(response) {
+        // Handling successful response
+        console.log(response);
+    },
+    error: function(xhr, status, error) {
+        // Handling errors
+        console.error(error);
+    }
+});
+
+
+|Explanation:
+------------------------------------------------------------------------------------|
+|    $.ajax(): This is a jQuery function used for making AJAX requests.             |
+|    url: Specifies the URL to which the request will be sent.                      |
+|    method: Specifies the HTTP method (GET in this case).                          |
+|    success: Callback function to handle a successful response.                    |
+|    error: Callback function to handle errors.                                     |
+|                                                                                   |
+|-----------------------------------------------------------------------------------|
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Data to be sent in the request body
+var data = { key: 'value' };
+
+// Making a POST request using jQuery
+$.ajax({
+    url: 'https://example.com/data',
+    method: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(data),
+    success: function(response) {
+        // Handling successful response
+        console.log(response);
+    },
+    error: function(xhr, status, error) {
+        // Handling errors
+        console.error(error);
+    }
+});
+
+
+
+
+|Explanation:
+------------------------------------------------------------------------------------|
+|   Similar to the GET request, but with the method set to POST.                    |
+|   contentType: Specifies the content type of the data being sent                  |
+|   (application/json in this case).                                                |
+|   data: Specifies the data to be sent in the request body. Here, we convert }     |
+|   the data object to a JSON string using JSON.stringify() before sending it.      |
+|                                                                                   |
+|-----------------------------------------------------------------------------------|
+
+
+
+
+
+
